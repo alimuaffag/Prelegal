@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Highlight filled-in values in document preview */
+.filled-value {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+/* Standard terms paragraph spacing */
+.standard-terms p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.standard-terms h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+    background: white !important;
+  }
+
+  /* Reset layout for print */
+  .flex.h-screen {
+    display: block !important;
+    height: auto !important;
+  }
+
+  main {
+    display: block !important;
+    overflow: visible !important;
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  #nda-document {
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Hide preview header in print */
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  /* Don't highlight filled values in print */
+  .filled-value {
+    font-weight: normal;
+    color: inherit;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
